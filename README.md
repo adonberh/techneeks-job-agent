@@ -1,4 +1,3 @@
-# techneeks-job-agent
 # TechNeeks Job Application Agent
 
 A beginner-friendly workshop project for learning how AI applications combine:
