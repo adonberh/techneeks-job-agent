@@ -1,6 +1,7 @@
 import streamlit as st
 
 from agent import run_application_agent
+from stage_actions import SUPPORTED_STAGES
 from tools.tracker_csv import load_tracker
 
 
@@ -32,6 +33,11 @@ with build_tab:
         height=250,
     )
 
+    stage = st.selectbox(
+        "Application stage",
+        SUPPORTED_STAGES,
+    )
+
     mock_mode = st.checkbox(
         "Use mock mode",
         value=True,
@@ -52,6 +58,7 @@ with build_tab:
                     job_url=job_url,
                     pasted_job_description=pasted_job_description,
                     candidate_profile=candidate_profile,
+                    stage=stage,
                     mock_mode=mock_mode,
                 )
 
@@ -59,6 +66,9 @@ with build_tab:
 
             st.subheader("Role summary")
             st.write(result["role_summary"])
+
+            st.subheader("Application stage")
+            st.write(result["stage"])
 
             st.subheader("Match analysis")
             st.write(result["match_analysis"])
