@@ -473,4 +473,3 @@ For an open-source workshop project, the MIT Licence is a common simple option.
 Created as part of the TechNeeks AI Agents Workshop.
 
 The project is intended to help beginners understand how practical AI systems combine models, tools, state, and software orchestration.
-
