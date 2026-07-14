@@ -10,6 +10,8 @@ It is a starting point.
 
 The challenge is to make it more useful.
 
+(main contains the simple workflow bult in the agent, whereas extended-agent branch contains the improvement with extensions for reference)
+
 ---
 
 ## What this app does
