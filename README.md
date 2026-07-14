@@ -274,7 +274,7 @@ No application should be submitted automatically without human review.
 The full workshop guide is here:
 
 ```text
-WORKSHOP-GUIDE-LINK-HERE
+https://olive-sage-c57.notion.site/AGENT-TALK-39386a274502803eb262f0721f969e34?pvs=74
 ```
 
 ---
