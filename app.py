@@ -53,34 +53,39 @@ with build_tab:
             )
 
         else:
-            with st.spinner("Running workflow..."):
-                result = run_application_agent(
-                    job_url=job_url,
-                    pasted_job_description=pasted_job_description,
-                    candidate_profile=candidate_profile,
-                    stage=stage,
-                    mock_mode=mock_mode,
-                )
+            try:
+                with st.spinner("Running workflow..."):
+                    result = run_application_agent(
+                        job_url=job_url,
+                        pasted_job_description=pasted_job_description,
+                        candidate_profile=candidate_profile,
+                        stage=stage,
+                        mock_mode=mock_mode,
+                    )
 
-            st.success("Application saved.")
+            except Exception as error:
+                st.error(f"The workflow failed: {error}")
 
-            st.subheader("Role summary")
-            st.write(result["role_summary"])
+            else:
+                st.success("Application saved.")
 
-            st.subheader("Application stage")
-            st.write(result["stage"])
+                st.subheader("Role summary")
+                st.write(result["role_summary"])
 
-            st.subheader("Match analysis")
-            st.write(result["match_analysis"])
+                st.subheader("Application stage")
+                st.write(result["stage"])
 
-            st.subheader("CV suggestions")
-            st.write(result["cv_suggestions"])
+                st.subheader("Match analysis")
+                st.write(result["match_analysis"])
 
-            st.subheader("Cover letter")
-            st.write(result["cover_letter"])
+                st.subheader("CV suggestions")
+                st.write(result["cv_suggestions"])
 
-            st.subheader("Next action")
-            st.write(result["next_action"])
+                st.subheader("Cover letter")
+                st.write(result["cover_letter"])
+
+                st.subheader("Next action")
+                st.write(result["next_action"])
 
 
 with tracker_tab:

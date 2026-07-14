@@ -1,3 +1,12 @@
+import os
+
+from dotenv import load_dotenv
+from openai import OpenAI
+
+
+load_dotenv()
+
+
 def call_llm(
     prompt: str,
     mock_mode: bool = True,
@@ -5,9 +14,22 @@ def call_llm(
     if mock_mode:
         return mock_response()
 
-    raise NotImplementedError(
-        "Live LLM mode is not configured."
+    api_key = os.getenv("OPENAI_API_KEY")
+
+    if not api_key:
+        raise RuntimeError(
+            "OPENAI_API_KEY is not configured."
+        )
+
+    model = os.getenv("OPENAI_MODEL", "gpt-4.1-mini")
+    client = OpenAI(api_key=api_key)
+
+    response = client.responses.create(
+        model=model,
+        input=prompt,
     )
+
+    return response.output_text
 
 
 def mock_response() -> str:
