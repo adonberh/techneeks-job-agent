@@ -113,8 +113,8 @@ You need:
 Clone the repo:
 
 ```bash
-git clone REPO-LINK-HERE
-cd REPO-FOLDER-HERE
+git clone https://github.com/adonberh/techneeks-job-agent.git
+cd techneeks-job-agent
 ```
 
 Create a virtual environment:
