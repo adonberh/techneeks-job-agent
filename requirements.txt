@@ -4,3 +4,5 @@ beautifulsoup4
 pandas
 openai
 python-dotenv
+pypdf
+python-docx
